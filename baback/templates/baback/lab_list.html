@@ -1,0 +1,12 @@
+{% extends 'baback/base.html' %}
+{% block content %}
+
+        {% for l in lab %}
+        <div>
+            <h1><a href="{% url 'lab_detail' pk=l.pk %}">{{ l.lab_name }}</a></h1>
+            <p>Название лаборатории: {{ l.lab_name|linebreaksbr }}</p>
+            <p>См. далее</p>
+
+        </div>
+     {% endfor %}
+{% endblock %}

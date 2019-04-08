@@ -1,0 +1,21 @@
+{% extends 'baback/base.html' %}
+{% block content %}
+
+        {% for user in users %}
+        <div>
+            <h2>{{ user.username|linebreaksbr }}</h2>
+            <p>Логин: {{ user.username|linebreaksbr }}</p>
+            <b><p>Статус: </p>  </b>
+            {%if user.customuser.admin %}
+              <p>Администратор</p>
+            {%endif%}
+            {%if user.customuser.usr %}
+              <p>Пользователь</p>
+
+            {%endif%}
+            <hr/>
+
+
+        </div>
+     {% endfor %}
+{% endblock %}

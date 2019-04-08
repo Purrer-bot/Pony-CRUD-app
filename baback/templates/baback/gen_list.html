@@ -1,0 +1,12 @@
+{% extends 'baback/base.html' %}
+{% block content %}
+
+        {% for g in gen %}
+        <div>
+            <h1><a href="{% url 'gen_detail' pk=g.pk %}">{{ g.description }}</a></h1>
+            <p>Основная формула: {{ g.base_formula|linebreaksbr }}</p>
+            <p>См. далее</p>
+
+        </div>
+     {% endfor %}
+{% endblock %}

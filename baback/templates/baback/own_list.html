@@ -1,0 +1,11 @@
+{% extends 'baback/base.html' %}
+{% block content %}
+        {% for owner in owners %}
+        <div>
+            <h1><a href="{% url 'own_detail' pk=owner.pk %}">{{ owner.name }}</a></h1>
+            <p>Телефон: {{ owner.phone|linebreaksbr }}</p>
+            <p>Адрес: {{ owner.address| linebreaksbr }}</p>
+       
+        </div>
+     {% endfor %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'baback/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if color.published_date %}
+            <div class="date">
+                {{ color.published_date }}
+            </div>
+        {% endif %}
+        <h1>{{ color.base_color}}</h1>
+
+        <a class="btn btn-default" href="{% url 'color_edit' pk=color.pk %}">Редактировать</a>
+        <a class="btn btn-default" href="{% url 'color_delete' pk=color.pk %}">Удалить</a>
+        
+        <p> Test
+        </p>
+    </div>
+{% endblock %}

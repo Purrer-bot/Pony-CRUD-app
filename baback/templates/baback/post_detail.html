@@ -1,0 +1,24 @@
+{% extends 'baback/base.html' %}
+
+{% block content %}
+    <div class="post">
+
+        <h1>{{ post.horse_name}}</h1>
+
+        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">Редактировать</a>
+        <a class="btn btn-default" href="{% url 'post_delete' pk=post.pk %}">Удалить</a>
+
+        <p><img src = "{{post.photo.url}}" width = '300px' height="250px" alter = "Нет фото"></p >
+        <p>Владелец: {{post.owner.name}}</p>
+        <p>Масть: {{ post.horse_color.base_color|linebreaksbr }}</p>
+        <p>Порода: {{ post.breed| linebreaksbr }}</p>
+        <p>Год рождения : {{ post.birth_date|linebreaksbr }}</p>
+        <p>Генотип: {{post.genes.base_formula}}</p>
+        <p>Серебристый ген: {{ post.genes.silver}}</p>
+        <p>Дикий ген: {{post.genes.dun}}</p>
+        <p>Кремелло: {{post.genes.cream}} </p>
+        <p>Шампанский: {{post.genes.champagne}}</p>
+
+    
+    </div>
+{% endblock %}

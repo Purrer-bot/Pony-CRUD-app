@@ -1,0 +1,104 @@
+<!doctype html>
+{%load static%}
+<html lang='ru'>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	  <title>Ponies Registry</title>
+	  <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+	  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css">
+
+  	<!--[if lt IE 9]>
+  	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  	<![endif]-->
+  </head>
+  <body>
+    <div id='wrapper'>
+      <header>
+        <a href=''><h1>Pony (and not only pony) registry</h1></a>
+        <!-- <form name='search' action='#' method='get'>
+          <input type='text' name='q' placeholder="Search">
+          <button type='submit'>GO</button>
+        </form> -->
+
+        <div class='add_h'><a href="{% url 'post_new' %}">Add New Horse</a></div>
+        {%if user.is_authenticated %}
+        <div class='add_o'><a href="{% url 'own_new' %}">Add New Owner</a></div>
+        <div class='add_g'><a href="{% url 'gen_new' %}">Add New Gens</a></div>
+        <div class='add_c'><a href="{% url 'color_new' %}">Add New Color</a></div>
+        <div class='add_l'><a href="{% url 'lab_new' %}">Add New Lab</a></div>
+        {% endif %}
+
+      </header>
+      <nav>
+        <ul class='top-menu'>
+          <li class="active"><a href='/'>Главная</a></li>
+
+          <li><a href='{%url 'own_list' %}'>Владельцы</a></li>
+          <li><a href='{%url 'color_list' %}'>Масти</a></li>
+          <li><a href='{%url 'gen_list' %}'>Наборы генов</a></li>
+          <li><a href='{%url 'lab_list' %}'>Лаборатории</a></li>
+          <li><a href='{%url 'usr_list' %}'>Пользователи</a></li>
+
+        </ul>
+      </nav>
+      <div id='heading'>
+        <!-- <h1>Главная</h1> -->
+      </div>
+      <aside>
+        <nav>
+          <ul class='aside-menu'>
+            <li class='active'><a href='{%url 'post_list' %}'>Лошади</a></li>
+            <li><a href='{%url 'usr_list' %}'>Пользователи</a></li>
+            <li><a href='{%url 'own_list' %}'>Владельцы</a></li>
+            <li><a href='{%url 'color_list' %}'>Масти</a></li>
+            <li><a href='{%url 'gen_list' %}'>Наборы генов</a></li>
+            <li><a href='{%url 'lab_list' %}'>Лаборатории</a></li>
+            <li><a href='/'>Главная</a></li>
+
+          </ul>
+        </nav>
+        <h2>Вход и выход</h2>
+        <p>{%if user.is_anonymous%}
+        <a href='/accounts/login'>Войти</a>
+        {%endif%}
+        {%if user.is_authenticated %}
+        <p>Пользователь: {{ user.get_username }}</p>
+        {%if user.customuser.admin %}
+          <p>Администратор</p>
+        {%endif%}
+        {%if user.customuser.usr %}
+          <p>Пользователь</p>
+        {%endif%}
+        <a href='/accounts/logout'>Выйти</a></li>
+        {%endif%}
+      </aside>
+      <section>
+         {% block content %}
+         {% endblock %}
+      </section>
+    </div>
+    <footer>
+      <div id='footer'>
+        <div id='twitter'>
+          <h3>Twitter</h3>
+         <p>Это лишнее</p>
+          <p>Footer</p>
+        </div>
+        <div id='sitemap'>
+          <h3>Sitemap</h3>
+          <div>
+            <p>Это тоже лишнее</p>
+          </div>
+        </div>
+        <div id="social">
+      	<h3>SOCIAL NETWORKS</h3>
+          <p>И это тоже лишнее</p>
+        </div>
+        <div id='footer-logo'>
+            <p>Copyright © 2012 Whitesquare. Purrer-bot</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

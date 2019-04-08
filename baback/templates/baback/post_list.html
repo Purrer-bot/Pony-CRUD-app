@@ -1,0 +1,12 @@
+{% extends 'baback/base.html' %}
+{% block content %}
+
+        {% for post in posts %}
+        <div>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.horse_name }}</a></h1>
+            <p>Масть: {{ post.horse_color.base_color|linebreaksbr }}</p>
+            <p>Порода: {{ post.breed| linebreaksbr }}</p>
+            <p>Год рождения : {{ post.birth_date|linebreaksbr }}</p>
+        </div>
+     {% endfor %}
+{% endblock %}

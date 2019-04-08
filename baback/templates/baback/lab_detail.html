@@ -1,0 +1,18 @@
+{% extends 'baback/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if lab.published_date %}
+            <div class="date">
+                {{ lab.published_date }}
+            </div>
+        {% endif %}
+
+        <h1>{{ lab.lab_name}}</h1>
+
+        <a class="btn btn-default" href="{% url 'lab_edit' pk=lab.pk %}">Редактировать</a>
+        <a class="btn btn-default" href="{% url 'lab_delete' pk=lab.pk %}">Удалить</a>
+        <p> Test
+        </p>
+    </div>
+{% endblock %}

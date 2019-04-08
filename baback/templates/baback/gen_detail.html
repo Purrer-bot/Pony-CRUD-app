@@ -1,0 +1,15 @@
+{% extends 'baback/base.html' %}
+
+{% block content %}
+    <div class="post">
+
+
+        <h1>{{ gen.base_formula}}</h1>
+
+        <a class="btn btn-default" href="{% url 'gen_edit' pk=gen.pk %}">Редактировать</a>
+        <a class="btn btn-default" href="{% url 'gen_delete' pk=gen.pk %}">Удалить</a>
+    
+        <p> Test
+        </p>
+    </div>
+{% endblock %}

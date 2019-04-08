@@ -1,0 +1,11 @@
+{% extends 'baback/base.html' %}
+{% block content %}
+
+        {% for c in color %}
+        <div>
+            <h1><a href="{% url 'color_detail' pk=c.pk %}">{{ c.base_color }}</a></h1>
+            <p>Основной цвет: {{ c.base_color }}</p>
+            <p>См. далее</p>
+        </div>
+     {% endfor %}
+{% endblock %}
